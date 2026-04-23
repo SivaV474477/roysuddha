@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#ffffff" />
+<title>Roy Suddha – Senior Product Manager & Cinematic Music Director</title>
+<meta name="description" content="Roy Suddha – Senior Product Manager at Carelon Global Solutions & Music Director for Bengali and Kannada films." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --white:#FFFFFF;--bg:#F7F7FA;--text:#1D1D1F;
+  --muted:#6E6E73;--blue:#0071E3;--gold:#D4AF37;
+  --border:#E2E2E8;--card:#FFFFFF;
+  --sh-soft:0 4px 28px rgba(0,0,0,.07);
+  --sh-hover:0 12px 48px rgba(0,0,0,.13);
+  --r:16px;
+  --sans:'DM Sans',sans-serif;
+  --serif:'Cormorant Garamond',serif;
+  --nav-h:60px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+body{font-family:var(--sans);background:var(--white);color:var(--text);line-height:1.6;overflow-x:hidden;}
+img{display:block;max-width:100%;height:auto;}
+a{text-decoration:none;color:inherit;}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;
+  padding:0 5vw;
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);transition:box-shadow .3s;
+}
+nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.08);}
+.nav-brand{font-family:var(--serif);font-size:1.4rem;font-weight:600;color:var(--text);letter-spacing:.02em;}
+.nav-brand span{color:var(--gold);}
+.nav-links{display:flex;gap:1.75rem;list-style:none;}
+.nav-links a{font-size:.85rem;font-weight:500;color:var(--muted);transition:color .2s;}
+.nav-links a:hover{color:var(--blue);}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none;}
+.hamburger span{width:22px;height:2px;background:var(--text);border-radius:2px;transition:.3s;display:block;}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.nav-drawer{
+  display:none;position:fixed;top:var(--nav-h);left:0;right:0;z-index:190;
+  background:rgba(255,255,255,.97);border-bottom:1px solid var(--border);
+  padding:1.25rem 5vw 1.75rem;flex-direction:column;gap:.25rem;
+  box-shadow:0 8px 32px rgba(0,0,0,.1);
+}
+.nav-drawer.open{display:flex;}
+.nav-drawer a{font-size:1rem;font-weight:500;color:var(--text);padding:.65rem .5rem;border-bottom:1px solid var(--border);transition:color .2s;}
+.nav-drawer a:last-child{border-bottom:none;}
+.nav-drawer a:hover{color:var(--blue);}
+
+/* BUTTONS */
+.btn{
+  display:inline-flex;align-items:center;gap:.45rem;
+  padding:.72rem 1.6rem;border-radius:50px;
+  font-family:var(--sans);font-size:.875rem;font-weight:500;
+  cursor:pointer;border:none;transition:all .25s;white-space:nowrap;
+}
+.btn-primary{background:var(--blue);color:#fff;box-shadow:0 4px 16px rgba(0,113,227,.28);}
+.btn-primary:hover{background:#005BBB;transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,113,227,.38);}
+.btn-outline{background:transparent;color:var(--text);border:1.5px solid var(--border);}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px);}
+.btn-gold{background:var(--gold);color:#1a1200;box-shadow:0 4px 16px rgba(212,175,55,.28);}
+.btn-gold:hover{background:#C09B28;transform:translateY(-2px);box-shadow:0 8px 24px rgba(212,175,55,.42);}
+
+/* SECTIONS */
+section{padding:90px 6vw;}
+section:nth-child(even){background:var(--bg);}
+.section-label{font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin-bottom:.6rem;}
+.section-title{font-family:var(--serif);font-size:clamp(2rem,4.5vw,3rem);font-weight:300;line-height:1.12;color:var(--text);}
+.section-title em{font-style:italic;color:var(--gold);}
+.section-divider{width:56px;height:2px;background:linear-gradient(90deg,var(--gold),var(--blue));margin:1.1rem 0 1.8rem;border-radius:2px;}
+
+/* HERO */
+#home{
+  min-height:100svh;display:grid;grid-template-columns:1fr 1fr;
+  align-items:center;gap:4rem;
+  padding-top:calc(var(--nav-h)+60px);padding-bottom:80px;padding-left:6vw;padding-right:6vw;
+  background:var(--white);position:relative;overflow:hidden;
+}
+#home::before{content:'';position:absolute;top:-150px;right:-150px;width:500px;height:500px;background:radial-gradient(circle,rgba(212,175,55,.11) 0%,transparent 70%);border-radius:50%;pointer-events:none;}
+#home::after{content:'';position:absolute;bottom:-80px;left:15%;width:380px;height:380px;background:radial-gradient(circle,rgba(0,113,227,.07) 0%,transparent 70%);border-radius:50%;pointer-events:none;}
+.hero-text{position:relative;z-index:1;}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-size:.72rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem;opacity:0;animation:fadeUp .7s .2s forwards;}
+.hero-eyebrow::before{content:'';display:inline-block;width:20px;height:2px;background:var(--gold);border-radius:2px;}
+.hero-name{font-family:var(--serif);font-size:clamp(3.2rem,7vw,5.8rem);font-weight:300;line-height:1.05;letter-spacing:-.01em;margin-bottom:1.1rem;opacity:0;animation:fadeUp .7s .35s forwards;}
+.hero-name em{font-style:italic;color:var(--gold);}
+.hero-subtitle{font-size:clamp(.88rem,1.6vw,1.05rem);font-weight:400;color:var(--muted);max-width:460px;margin-bottom:2.25rem;line-height:1.75;opacity:0;animation:fadeUp .7s .5s forwards;}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:.875rem;opacity:0;animation:fadeUp .7s .65s forwards;}
+.hero-img-wrap{display:flex;justify-content:center;align-items:center;position:relative;z-index:1;opacity:0;animation:fadeScale .9s .4s forwards;}
+.hero-img-frame{position:relative;width:min(400px,90%);}
+.hero-img-frame::before{content:'';position:absolute;inset:-14px;border-radius:calc(var(--r)+14px);border:1.5px solid rgba(212,175,55,.22);}
+.hero-img-frame::after{content:'';position:absolute;bottom:-20px;right:-20px;width:65%;height:65%;background:linear-gradient(135deg,rgba(212,175,55,.13),rgba(0,113,227,.08));border-radius:var(--r);z-index:-1;}
+.hero-img-frame img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:top center;border-radius:var(--r);box-shadow:var(--sh-hover);}
+.hero-badge{position:absolute;bottom:-14px;left:-14px;background:var(--white);border:1px solid var(--border);border-radius:12px;padding:.7rem 1.1rem;box-shadow:var(--sh-soft);display:flex;align-items:center;gap:.65rem;min-width:190px;}
+.hero-badge-icon{font-size:1.3rem;line-height:1;}
+.hero-badge-label{font-size:.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;}
+.hero-badge-value{font-size:.85rem;font-weight:600;color:var(--text);margin-top:.1rem;}
+
+/* ABOUT */
+#about{display:grid;grid-template-columns:1fr 1.4fr;gap:5rem;align-items:center;}
+.about-img-wrap{position:relative;}
+.about-img-wrap img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top center;border-radius:var(--r);box-shadow:var(--sh-hover);}
+.about-accent{position:absolute;top:-18px;right:-18px;background:var(--blue);color:#fff;border-radius:12px;padding:1.1rem 1.3rem;box-shadow:0 8px 28px rgba(0,113,227,.28);text-align:center;min-width:130px;}
+.about-accent .big{font-size:1.9rem;font-weight:700;font-family:var(--serif);line-height:1;}
+.about-accent .small{font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;opacity:.85;margin-top:.2rem;}
+.about-quote{position:absolute;bottom:-18px;left:-18px;background:var(--gold);color:#1a1200;border-radius:12px;padding:.9rem 1.1rem;box-shadow:0 8px 28px rgba(212,175,55,.35);max-width:200px;font-size:.78rem;font-weight:500;line-height:1.5;}
+.about-quote strong{display:block;font-size:.95rem;font-family:var(--serif);font-weight:600;margin-bottom:.2rem;}
+.about-bio{font-family:var(--serif);font-size:1.15rem;font-weight:300;line-height:1.85;color:#444;margin-bottom:1.75rem;}
+.skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:.65rem;margin-bottom:1.75rem;}
+.skill-tag{display:flex;align-items:center;gap:.55rem;padding:.55rem .9rem;background:var(--white);border:1px solid var(--border);border-radius:8px;font-size:.8rem;font-weight:500;}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--blue);flex-shrink:0;}
+.dot.g{background:var(--gold);}
+
+/* EXPERIENCE */
+#experience{background:var(--white);}
+.exp-intro{max-width:580px;margin-bottom:3.5rem;}
+.timeline{display:flex;flex-direction:column;position:relative;max-width:760px;margin-bottom:2.5rem;}
+.timeline::before{content:'';position:absolute;left:19px;top:8px;bottom:8px;width:1px;background:var(--border);}
+.tl-item{display:flex;gap:2.25rem;padding-left:54px;position:relative;padding-bottom:2.25rem;}
+.tl-item:last-child{padding-bottom:0;}
+.tl-dot{position:absolute;left:12px;top:5px;width:15px;height:15px;border-radius:50%;background:var(--white);border:2px solid var(--blue);}
+.tl-dot.g{border-color:var(--gold);}
+.tl-period{font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);margin-bottom:.3rem;}
+.tl-period.g{color:var(--gold);}
+.tl-role{font-size:1rem;font-weight:600;color:var(--text);margin-bottom:.15rem;}
+.tl-company{font-family:var(--serif);font-size:.95rem;font-style:italic;color:var(--muted);margin-bottom:.4rem;}
+.tl-desc{font-size:.845rem;color:var(--muted);line-height:1.7;}
+
+/* MUSIC */
+#music{background:var(--bg);}
+.music-intro{display:grid;grid-template-columns:1.2fr 1fr;gap:5rem;align-items:center;margin-bottom:4.5rem;}
+.music-img-wrap{position:relative;order:2;}
+.music-img-wrap img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top center;border-radius:var(--r);box-shadow:var(--sh-hover);}
+.music-side-label{position:absolute;top:50%;right:-28px;transform:translateY(-50%);background:var(--gold);color:#1a1200;border-radius:10px;padding:.85rem .65rem;box-shadow:0 8px 28px rgba(212,175,55,.38);writing-mode:vertical-rl;text-orientation:mixed;font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;}
+.music-desc{font-family:var(--serif);font-size:1.1rem;font-weight:300;color:#555;line-height:1.85;margin-bottom:1.75rem;}
+.films-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:1.25rem;margin-bottom:3.5rem;}
+.film-card{background:var(--card);border-radius:var(--r);border:1px solid var(--border);padding:1.35rem;box-shadow:var(--sh-soft);transition:transform .3s,box-shadow .3s;position:relative;overflow:hidden;}
+.film-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),rgba(212,175,55,.3));opacity:0;transition:opacity .3s;}
+.film-card:hover{transform:translateY(-5px);box-shadow:var(--sh-hover);}
+.film-card:hover::before{opacity:1;}
+.film-lang{display:inline-block;font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.22rem .6rem;border-radius:20px;margin-bottom:.9rem;}
+.bengali{background:rgba(0,113,227,.1);color:var(--blue);}
+.kannada{background:rgba(212,175,55,.15);color:#8B7000;}
+.film-title{font-family:var(--serif);font-size:1.2rem;font-weight:600;color:var(--text);line-height:1.3;margin-bottom:.4rem;}
+.film-role{font-size:.75rem;color:var(--muted);font-weight:500;text-transform:uppercase;letter-spacing:.06em;}
+.film-ico{position:absolute;bottom:.9rem;right:.9rem;font-size:1.4rem;opacity:.1;}
+.sc-block{background:linear-gradient(135deg,#1D1D1F,#2D2D30);border-radius:20px;padding:2.25rem;color:#fff;}
+.sc-hd{display:flex;align-items:center;gap:.9rem;margin-bottom:1.25rem;}
+.sc-ico{width:44px;height:44px;border-radius:10px;background:#FF5500;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.sc-t{font-size:1rem;font-weight:600;}
+.sc-s{font-size:.78rem;color:#aaa;margin-top:.15rem;}
+.sc-embed{border-radius:12px;overflow:hidden;}
+
+/* FOOTER */
+footer{background:var(--text);color:rgba(255,255,255,.8);padding:56px 6vw 36px;}
+.footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:3.5rem;margin-bottom:2.5rem;padding-bottom:2.5rem;border-bottom:1px solid rgba(255,255,255,.1);}
+.footer-name{font-family:var(--serif);font-size:1.7rem;font-weight:300;color:#fff;margin-bottom:.65rem;}
+.footer-name span{color:var(--gold);}
+.footer-desc{font-size:.845rem;color:rgba(255,255,255,.5);line-height:1.7;max-width:280px;}
+.social-row{display:flex;gap:.75rem;margin-top:1.25rem;}
+.soc{width:38px;height:38px;border-radius:9px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.7);font-size:.75rem;font-weight:700;transition:all .2s;}
+.soc:hover{background:var(--gold);color:#1a1200;border-color:var(--gold);}
+.f-col-title{font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:.85rem;}
+.f-links{list-style:none;display:flex;flex-direction:column;gap:.55rem;}
+.f-links a{font-size:.845rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:.45rem;transition:color .2s;}
+.f-links a:hover{color:var(--gold);}
+.footer-btm{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.75rem;font-size:.78rem;color:rgba(255,255,255,.3);}
+.footer-btm a{color:rgba(255,255,255,.45);}
+.footer-btm a:hover{color:var(--gold);}
+
+/* SCROLL REVEAL */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease;}
+.reveal.visible{opacity:1;transform:none;}
+.d1{transition-delay:.1s;}.d2{transition-delay:.2s;}.d3{transition-delay:.3s;}.d4{transition-delay:.4s;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:none;}}
+@keyframes fadeScale{from{opacity:0;transform:scale(.95);}to{opacity:1;transform:none;}}
+
+/* TABLET */
+@media(max-width:900px){
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  #home{grid-template-columns:1fr;padding-top:calc(var(--nav-h)+40px);padding-bottom:60px;text-align:center;gap:2.5rem;}
+  .hero-text{order:2;}
+  .hero-eyebrow{justify-content:center;}
+  .hero-subtitle{margin-left:auto;margin-right:auto;}
+  .hero-ctas{justify-content:center;}
+  .hero-img-wrap{order:1;}
+  .hero-img-frame{width:min(280px,72vw);}
+  .hero-badge{left:50%;transform:translateX(-50%);bottom:-12px;min-width:200px;}
+  #about{grid-template-columns:1fr;gap:2.75rem;}
+  .about-img-wrap img{aspect-ratio:16/9;object-position:top;}
+  .about-accent{top:-12px;right:0;}
+  .about-quote{bottom:-12px;left:0;}
+  .music-intro{grid-template-columns:1fr;gap:2.75rem;}
+  .music-img-wrap{order:1;}
+  .music-img-wrap img{aspect-ratio:16/9;object-position:top;}
+  .music-side-label{display:none;}
+  .footer-top{grid-template-columns:1fr 1fr;gap:2.25rem;}
+}
+
+/* MOBILE */
+@media(max-width:600px){
+  :root{--nav-h:56px;}
+  section{padding:64px 5vw;}
+  #home{gap:2rem;padding-top:calc(var(--nav-h)+32px);padding-bottom:48px;}
+  .hero-name{font-size:clamp(2.8rem,13vw,3.8rem);}
+  .hero-img-frame{width:min(240px,68vw);}
+  .hero-badge{display:none;}
+  #about{gap:2rem;}
+  .skills-grid{grid-template-columns:1fr;}
+  .about-accent{top:-8px;right:0;min-width:unset;padding:.8rem 1rem;}
+  .about-accent .big{font-size:1.5rem;}
+  .about-quote{bottom:-8px;left:0;max-width:175px;font-size:.72rem;}
+  .music-intro{gap:2rem;}
+  .films-grid{grid-template-columns:1fr 1fr;}
+  .footer-top{grid-template-columns:1fr;gap:1.75rem;}
+  .footer-btm{flex-direction:column;align-items:flex-start;gap:.4rem;}
+  .btn{padding:.68rem 1.3rem;font-size:.82rem;}
+  .hero-ctas{gap:.65rem;}
+  .sc-block{padding:1.5rem;}
+}
+
+/* VERY SMALL */
+@media(max-width:380px){
+  .hero-ctas{flex-direction:column;align-items:center;}
+  .films-grid{grid-template-columns:1fr;}
+  .hero-img-frame{width:min(210px,75vw);}
+}
+
+/* Notch safe area */
+@supports(padding:env(safe-area-inset-bottom)){
+  footer{padding-bottom:max(36px,env(safe-area-inset-bottom));}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <a href="#home" class="nav-brand">Roy <span>Suddha</span></a>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Career</a></li>
+    <li><a href="#music">Music</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<nav class="nav-drawer" id="nav-drawer">
+  <a href="#home">Home</a>
+  <a href="#about">About</a>
+  <a href="#experience">Career</a>
+  <a href="#music">Music</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-text">
+    <div class="hero-eyebrow">Product Manager &amp; Music Director</div>
+    <h1 class="hero-name">Roy<br/><em>Suddha</em></h1>
+    <p class="hero-subtitle">Senior Product Manager at Carelon Global Solutions leading digital health innovation — and a Music Director crafting cinematic stories across Bengali &amp; Kannada films.</p>
+    <div class="hero-ctas">
+      <a href="#experience" class="btn btn-primary">View Professional Experience</a>
+      <a href="#music" class="btn btn-outline">Explore Music Portfolio</a>
+    </div>
+  </div>
+  <div class="hero-img-wrap">
+    <div class="hero-img-frame">
+      <img src="profile-professional.jpg" alt="Roy Suddha – Senior Product Manager" loading="eager" width="400" height="500" />
+      <div class="hero-badge">
+        <div class="hero-badge-icon">🏥</div>
+        <div>
+          <div class="hero-badge-label">Current Role</div>
+          <div class="hero-badge-value">Sr. Product Manager</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-img-wrap reveal">
+    <img src="profile-visionary.jpg" alt="Roy Suddha – The Visionary" loading="lazy" width="420" height="560" />
+    <div class="about-accent">
+      <div class="big">10+</div>
+      <div class="small">Years Leadership</div>
+    </div>
+    <div class="about-quote">
+      <strong>🎬 Dual Canvas</strong>
+      Boardroom strategist.<br/>Cinematic storyteller.
+    </div>
+  </div>
+  <div class="reveal d1">
+    <div class="section-label">About Me</div>
+    <h2 class="section-title">The Visionary<br/><em>Profile</em></h2>
+    <div class="section-divider"></div>
+    <p class="about-bio">With over a decade of leadership in the tech industry, I currently lead digital health innovation at Carelon Global Solutions. Parallel to my corporate career, I am a Music Director for the Bengali and Kannada film industries. I bridge the gap between technical precision and creative soul.</p>
+    <div class="skills-grid">
+      <div class="skill-tag"><span class="dot"></span>Product Strategy</div>
+      <div class="skill-tag"><span class="dot"></span>Digital Healthcare</div>
+      <div class="skill-tag"><span class="dot"></span>Agile Leadership</div>
+      <div class="skill-tag"><span class="dot"></span>Roadmap Design</div>
+      <div class="skill-tag"><span class="dot g"></span>Film Music Direction</div>
+      <div class="skill-tag"><span class="dot g"></span>Bengali &amp; Kannada Cinema</div>
+      <div class="skill-tag"><span class="dot g"></span>Composition &amp; Arrangement</div>
+      <div class="skill-tag"><span class="dot"></span>Cross-functional Teams</div>
+    </div>
+    <a href="https://www.linkedin.com/in/suddha-roy-1b895272/" target="_blank" rel="noopener" class="btn btn-primary">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+      Connect on LinkedIn
+    </a>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="exp-intro reveal">
+    <div class="section-label">Professional Career</div>
+    <h2 class="section-title">Digital Health<br/><em>Innovation Leader</em></h2>
+    <div class="section-divider"></div>
+    <p style="color:var(--muted);font-size:.93rem;line-height:1.75;">A strategic product leader driving transformation in the digital healthcare landscape — focused on roadmapping, cross-functional leadership, and scalable technology solutions.</p>
+  </div>
+  <div class="timeline reveal d1">
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div>
+        <div class="tl-period">2020 – Present</div>
+        <div class="tl-role">Senior Product Manager</div>
+        <div class="tl-company">Carelon Global Solutions (Elevance Health)</div>
+        <div class="tl-desc">Leading digital health product strategy and innovation across enterprise-scale platforms. Driving roadmap definition, stakeholder alignment, and delivery for healthcare transformation initiatives.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div>
+        <div class="tl-period">Prior Experience</div>
+        <div class="tl-role">Product Management Leadership</div>
+        <div class="tl-company">Legato Health Technologies / Elevance Health Ecosystem</div>
+        <div class="tl-desc">Extensive tenure across the Carelon / Legato / Elevance Health ecosystem — building deep expertise in healthcare IT, digital strategy, and technology-led business transformation.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot g"></div>
+      <div>
+        <div class="tl-period g">Parallel Career</div>
+        <div class="tl-role">Music Director</div>
+        <div class="tl-company">Bengali &amp; Kannada Film Industry</div>
+        <div class="tl-desc">Concurrent with his corporate career, Roy has composed and directed music for multiple feature films — including <em>Abhimaan</em>, <em>Sultan: The Saviour</em>, <em>Panther: Hindustan Meri Jaan</em>, <em>Inspector NottyK</em>, and <em>Dinga</em>.</div>
+      </div>
+    </div>
+  </div>
+  <a href="https://www.linkedin.com/in/suddha-roy-1b895272/" target="_blank" rel="noopener" class="btn btn-outline reveal d2">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+    View Full Experience on LinkedIn
+  </a>
+</section>
+
+<!-- MUSIC -->
+<section id="music">
+  <div class="music-intro">
+    <div class="reveal">
+      <div class="section-label">Music Portfolio</div>
+      <h2 class="section-title">The Artistic<br/><em>Soul</em></h2>
+      <div class="section-divider"></div>
+      <p class="music-desc">Music is not a pastime — it is a parallel universe. As a Music Director, Roy Suddha crafts cinematic soundscapes that breathe life into stories, spanning the rich literary traditions of Bengali cinema and the vibrant energy of Kannada films.</p>
+      <a href="https://soundcloud.com/suddho-roy" target="_blank" rel="noopener" class="btn btn-gold">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M11.56 8.87V17h8.76c1.41-.01 2.51-1.05 2.51-2.46a2.5 2.5 0 0 0-2.27-2.45l-.36-.04-.1-.36A4.49 4.49 0 0 0 11.56 8.87zm-1.5.27l-.04.05A5.99 5.99 0 0 0 8 8.5a6 6 0 0 0-6 6A6 6 0 0 0 8 20.5h3.56V9.16a4.48 4.48 0 0 0-1.5-.02z"/></svg>
+        Listen on SoundCloud
+      </a>
+    </div>
+    <div class="music-img-wrap reveal d2">
+      <img src="profile-artist.jpg" alt="Roy Suddha – Music Director" loading="lazy" width="380" height="508" />
+      <div class="music-side-label">Music Director</div>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <p style="font-family:var(--serif);font-size:1.5rem;font-weight:300;color:var(--text);margin-bottom:.4rem;">Discography</p>
+    <p style="font-size:.875rem;color:var(--muted);margin-bottom:2rem;">Feature Films as Music Director</p>
+    <div class="films-grid">
+      <div class="film-card reveal d1"><span class="film-lang bengali">Bengali</span><div class="film-title">Abhimaan</div><div class="film-role">Music Director</div><div class="film-ico">🎬</div></div>
+      <div class="film-card reveal d2"><span class="film-lang bengali">Bengali</span><div class="film-title">Sultan: The Saviour</div><div class="film-role">Music Director</div><div class="film-ico">🎬</div></div>
+      <div class="film-card reveal d3"><span class="film-lang bengali">Bengali</span><div class="film-title">Panther: Hindustan Meri Jaan</div><div class="film-role">Music Director</div><div class="film-ico">🎬</div></div>
+      <div class="film-card reveal d4"><span class="film-lang bengali">Bengali</span><div class="film-title">Inspector NottyK</div><div class="film-role">Music Director</div><div class="film-ico">🎬</div></div>
+      <div class="film-card reveal d2"><span class="film-lang kannada">Kannada</span><div class="film-title">Dinga</div><div class="film-role">Music Director</div><div class="film-ico">🎵</div></div>
+    </div>
+  </div>
+
+  <div class="sc-block reveal">
+    <div class="sc-hd">
+      <div class="sc-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M11.56 8.87V17h8.76c1.41-.01 2.51-1.05 2.51-2.46a2.5 2.5 0 0 0-2.27-2.45l-.36-.04-.1-.36A4.49 4.49 0 0 0 11.56 8.87zm-1.5.27l-.04.05A5.99 5.99 0 0 0 8 8.5a6 6 0 0 0-6 6A6 6 0 0 0 8 20.5h3.56V9.16a4.48 4.48 0 0 0-1.5-.02z"/></svg></div>
+      <div><div class="sc-t">Roy Suddha on SoundCloud</div><div class="sc-s">soundcloud.com/suddho-roy · Film compositions &amp; original tracks</div></div>
+    </div>
+    <div class="sc-embed">
+      <iframe width="100%" height="280" scrolling="no" frameborder="no" allow="autoplay" loading="lazy"
+        src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/suddho-roy&color=%23D4AF37&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+        style="border-radius:12px;"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="footer-top">
+    <div>
+      <div class="footer-name">Roy <span>Suddha</span></div>
+      <p class="footer-desc">Senior Product Manager driving digital health transformation at Carelon Global Solutions — and a Music Director whose compositions echo across Bengali and Kannada cinema.</p>
+      <div class="social-row">
+        <a href="https://www.linkedin.com/in/suddha-roy-1b895272/" target="_blank" rel="noopener" class="soc" title="LinkedIn">in</a>
+        <a href="https://soundcloud.com/suddho-roy" target="_blank" rel="noopener" class="soc" title="SoundCloud">sc</a>
+        <a href="mailto:contact@roysuddha.net" class="soc" title="Email">✉</a>
+      </div>
+    </div>
+    <div>
+      <div class="f-col-title">Quick Links</div>
+      <ul class="f-links">
+        <li><a href="#about">↗ About Me</a></li>
+        <li><a href="#experience">↗ Career</a></li>
+        <li><a href="#music">↗ Music Portfolio</a></li>
+        <li><a href="https://www.linkedin.com/in/suddha-roy-1b895272/" target="_blank" rel="noopener">↗ LinkedIn</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="f-col-title">Get in Touch</div>
+      <ul class="f-links">
+        <li><a href="https://www.linkedin.com/in/suddha-roy-1b895272/" target="_blank" rel="noopener"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a></li>
+        <li><a href="https://soundcloud.com/suddho-roy" target="_blank" rel="noopener"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M11.56 8.87V17h8.76c1.41-.01 2.51-1.05 2.51-2.46a2.5 2.5 0 0 0-2.27-2.45l-.36-.04-.1-.36A4.49 4.49 0 0 0 11.56 8.87zm-1.5.27l-.04.05A5.99 5.99 0 0 0 8 8.5a6 6 0 0 0-6 6A6 6 0 0 0 8 20.5h3.56V9.16a4.48 4.48 0 0 0-1.5-.02z"/></svg>SoundCloud</a></li>
+        <li><a href="mailto:contact@roysuddha.net"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>contact@roysuddha.net</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-btm">
+    <span>© 2026 Roy Suddha · <a href="https://roysuddha.net">roysuddha.net</a></span>
+    <span>Built with precision &amp; soul.</span>
+  </div>
+</footer>
+
+<script>
+const nav=document.getElementById('main-nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>20),{passive:true});
+const hb=document.getElementById('hamburger'),drawer=document.getElementById('nav-drawer');
+hb.addEventListener('click',()=>{hb.classList.toggle('open');drawer.classList.toggle('open');});
+drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{hb.classList.remove('open');drawer.classList.remove('open');}));
+const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
